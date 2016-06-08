@@ -1,0 +1,84 @@
+﻿@model Utalca.ControlAsistencia.Curso
+
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Curso</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Creditos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Creditos)
+        </dd>           
+        <dt>
+            @Html.DisplayNameFor(model => model.Seccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Seccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Carrera)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carrera.Nombre)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Plan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Plan.Nombre)
+        </dd>     
+    </dl>
+    <h5>@Html.DisplayNameFor(model => model.Requisitos)</h5>
+    <ol>
+        @foreach (var curso in Model.Requisitos)
+        {
+            var servicio = new Utalca.ControlAsistencia.ControlAsistenciaClient();
+            var cursoAux = servicio.Curso(curso.ID);
+            <li>@Html.ActionLink(cursoAux.Nombre, "Details", new { id = curso.ID })</li>
+        }
+    </ol>
+    <h5>@Html.DisplayNameFor(model => model.Profesores)</h5>
+    <ol>
+        @foreach (var participante in Model.Profesores)
+        {
+            <li>@participante.Nombre</li>
+        }
+    </ol>
+    <h5>@Html.DisplayNameFor(model => model.Alumnos)</h5>
+    <ol>
+        @foreach(var participante in Model.Alumnos)
+        {
+            <li>@participante.Nombre</li>
+        }
+    </ol>    
+    <h5>@Html.DisplayNameFor(model => model.Ayudantes)</h5>
+    <ol>
+        @foreach (var participante in Model.Ayudantes)
+        {
+            <li>@participante.Nombre</li>
+        }
+    </ol>
+</div>
+<p>    
+    @Html.ActionLink("Back to List", "Index")
+</p>
