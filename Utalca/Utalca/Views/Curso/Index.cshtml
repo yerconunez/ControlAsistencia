@@ -1,25 +1,13 @@
 ﻿@model IEnumerable<Utalca.ControlAsistencia.Curso>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Cursos";
 }
 
-<h2>Index</h2>
+<h2>Cursos</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Creditos)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImagenURL)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.Nombre)
         </th>
@@ -27,7 +15,10 @@
             @Html.DisplayNameFor(model => model.Seccion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.URL)
+            @Html.DisplayNameFor(model => model.Creditos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Carrera)
         </th>
         <th></th>
     </tr>
@@ -35,25 +26,19 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Creditos)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImagenURL)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Nombre)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Seccion)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.URL)
+            @Html.DisplayFor(modelItem => item.Creditos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Carrera.Nombre)
         </td>
         <td>            
-            @Html.ActionLink("Details", "Details", new { id=item.ID })            
+            @Html.ActionLink("Ver Detalles", "Details", new { id=item.ID })            
         </td>
     </tr>
 }

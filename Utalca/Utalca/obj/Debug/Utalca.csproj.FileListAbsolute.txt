@@ -80,3 +80,6 @@ C:\Users\Camilo Gálvez Vidal\Documents\GitHub\ControlAsistencia\Utalca\Utalca\b
 C:\Users\Camilo Gálvez Vidal\Documents\GitHub\ControlAsistencia\Utalca\Utalca\obj\Debug\Utalca.csprojResolveAssemblyReference.cache
 C:\Users\Camilo Gálvez Vidal\Documents\GitHub\ControlAsistencia\Utalca\Utalca\obj\Debug\Utalca.dll
 C:\Users\Camilo Gálvez Vidal\Documents\GitHub\ControlAsistencia\Utalca\Utalca\obj\Debug\Utalca.pdb
+C:\Users\Camilo Gálvez Vidal\Documents\GitHub\ControlAsistencia\Utalca\Utalca\bin\es\System.Net.Http.Formatting.resources.dll
+C:\Users\Camilo Gálvez Vidal\Documents\GitHub\ControlAsistencia\Utalca\Utalca\bin\es\System.Web.Http.resources.dll
+C:\Users\Camilo Gálvez Vidal\Documents\GitHub\ControlAsistencia\Utalca\Utalca\bin\es\System.Web.Http.WebHost.resources.dll

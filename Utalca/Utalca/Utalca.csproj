@@ -133,6 +133,8 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ClaseController.cs" />
+    <Compile Include="Controllers\CursoApiController.cs" />
     <Compile Include="Controllers\CursoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfesorApiController.cs" />
@@ -175,6 +177,7 @@
     </Content>
     <Content Include="Views\Curso\Index.cshtml" />
     <Content Include="Views\Curso\Details.cshtml" />
+    <Content Include="Views\Clase\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
