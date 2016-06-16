@@ -15,7 +15,7 @@
 
         <dd>
             @Html.DisplayFor(model => model.Creditos)
-        </dd>           
+        </dd>            
         <dt>
             @Html.DisplayNameFor(model => model.Seccion)
         </dt>
@@ -49,15 +49,98 @@
 
     <div class="row">
         <div class="col-md-12">
-            <ul class="list-group">
+            <table class="table">
+                <tr>
+                    <th width="30%">
+                        <p>Titulo</p>
+                    </th>
+                    <th width="30%">
+                        <p>Fecha</p>
+                    </th>
+                    <th width="30%">
+                        <p>Sala</p>
+                    </th>
+                    <th width="10%"></th>
+                </tr>
                 @foreach (var clase in Model.Horario)
                 {
-                    <li class="list-group-item"><a href="@Url.Action("Index", "Clase", new { idCurso = Model.ID, fechaClase = clase.Fecha })">@clase.Fecha</a></li>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => clase.Titulo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => clase.Fecha)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => clase.Sala.Nombre)
+                        </td>                       
+                        <td>
+                           <button class="btn btn-default" data-toggle="modal" data-target="#modalAsistencia">Asistencia</button>
+                            <div class="modal fade" id="modalAsistencia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Registro Asistencia</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="table">
+                                                <tr>
+                                                    <th>
+                                                        <p>Alumnos</p>
+                                                    </th>
+                                                    <th></th>
+                                                </tr>
+
+                                                @foreach (var participantes in clase.Presentes)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => participantes.Nombre)
+                                                        </td>
+                                                        <td>  
+                                                            <input id="idAlumno" value="@participantes.ID">                                                          
+                                                            <input id="idAsistencia_@participantes.ID" type="checkbox">
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </table>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-success" id="buttonSubmit">Enviar Asistencia</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
                 }
-            </ul>
+            </table>
+            
         </div>
     </div>
 </div>
+<br />
 <p>    
     @Html.ActionLink("Volver a Cursos", "Index")
 </p>
+<script>
+    $(document).ready(function () {
+        var alumno = $('#idAlumno').val();
+        var asistencia = $('#idAsistencia_' + alumno).val();
+        $(':checkbox:checked').each(
+            function () {
+                console.log('idAsistencia_' + alumno);
+                console.log(asistencia);
+                $.ajax({
+                    method: "POST",
+                    url: "/api/CursoApi",
+                    dataType: "json",
+                    data: JSON.stringify([asistencia]),
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) { }
+                });
+            }
+        );   
+    });
+</script>

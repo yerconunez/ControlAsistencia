@@ -28,6 +28,7 @@ namespace Utalca.Controllers
         // POST api/<controller>
         public void Post([FromBody]string value)
         {
+            Console.WriteLine(value);
             var servicio = new ControlAsistencia.ControlAsistenciaClient();
         }
 
