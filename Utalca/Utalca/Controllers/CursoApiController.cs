@@ -26,9 +26,10 @@ namespace Utalca.Controllers
         }
 
         // POST api/<controller>
-        public void Post([FromBody]Utalca.Models.Profesor value)
+        public void Post([FromBody]Utalca.Models.Asistencia value)
         {
             var servicio = new ControlAsistencia.ControlAsistenciaClient();
+            var resultado = servicio.RegistrarAsistencia(value.IDParticipante,value.IDCurso,value.fechaClase);
         }
 
         // PUT api/<controller>/5

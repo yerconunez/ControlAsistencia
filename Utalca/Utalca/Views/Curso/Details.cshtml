@@ -70,6 +70,7 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => clase.Fecha)
+                            <input id="fecha_@clase.Fecha" value="@clase.Fecha.ToString("yyyyMMddHHmm")" hidden />                            
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => clase.Sala.Nombre)
@@ -99,7 +100,7 @@
                                                             @Html.DisplayFor(modelItem => participantes.Nombre)
                                                         </td>
                                                         <td>                                                                                                                        
-                                                            <input id="idAsistencia_@participantes.ID" type="checkbox">
+                                                            <input id="idAsistencia_@participantes.ID" type="checkbox">                                                            
                                                         </td>
                                                     </tr>
                                                 }
@@ -124,13 +125,13 @@
     @Html.ActionLink("Volver a Cursos", "Index")
 </p>
 <script>
-    var alumno = $('#idAlumno').val();
-    var asistencia = $('#idAsistencia_' + alumno).val();
-    $("input[id^='idAsistencia_']").on("click", function (){
-        console.log('probando..');
+    $("input[id^='idAsistencia_']").on("click", function () {
+        var idParticipante = $(this).attr("id").split("_")[1];
+        var fecha = $("input[id^='fecha_']").val();
+        console.log(fecha);
         $.ajax({
             url: "/api/CursoApi",
-            data: { Nombre: "perreo"},
+            data: { idParticipante: idParticipante, idCurso: @Model.ID, fechaClase: fecha},
             accepts: "application/json",
             contentType: "application/x-www-form-urlencoded; charset=UTF-8",
             method: "POST",
