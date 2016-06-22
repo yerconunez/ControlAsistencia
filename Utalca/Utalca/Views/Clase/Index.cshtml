@@ -30,23 +30,5 @@
 </table>
 <br />
 <button class="btn-success" id="buttonSubmit">Enviar Asistencia</button>
-<script>
-    $(document).ready(function () {
-        $('#buttonSubmit').click(function () {
-            var asistencia = $('idAsistencia').val();
-            var alumno = $('idParticipante').val();
-            var fecha = $('idFecha').val();
-            $.ajax({
-                method: "POST",
-                url: "/api/CursoApi",
-                dataType: "json",
-                data: JSON.stringify([asistencia, alumno, fecha]),
-                contentType: 'application/json; charset=utf-8',
-                success: function (data) {
-                    console.log(data);
-                }
-            });
-        });
-    });
-</script>
+
 

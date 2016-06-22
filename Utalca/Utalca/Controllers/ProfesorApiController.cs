@@ -24,6 +24,7 @@ namespace Utalca.Controllers
         // POST: api/ProfesorApi
         public void Post([FromBody]string value)
         {
+            var var = 0;
         }
 
         // PUT: api/ProfesorApi/5

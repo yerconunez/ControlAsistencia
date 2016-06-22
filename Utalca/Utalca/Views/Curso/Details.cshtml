@@ -98,8 +98,7 @@
                                                         <td>
                                                             @Html.DisplayFor(modelItem => participantes.Nombre)
                                                         </td>
-                                                        <td>  
-                                                            <input id="idAlumno" value="@participantes.ID">                                                          
+                                                        <td>                                                                                                                        
                                                             <input id="idAsistencia_@participantes.ID" type="checkbox">
                                                         </td>
                                                     </tr>
@@ -127,9 +126,22 @@
 <script>
     var alumno = $('#idAlumno').val();
     var asistencia = $('#idAsistencia_' + alumno).val();
-    $("input[id^='idAsistencia_']").on("click", function ()
-        {
- 
-        }
+    $("input[id^='idAsistencia_']").on("click", function (){
+        console.log('probando..');
+        $.ajax({
+            url: "/api/CursoApi",
+            data: { Nombre: "perreo"},
+            accepts: "application/json",
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            method: "POST",
+            success: function (result) {
+                console.log(result);
+                console.log("Exito en la disco!");
+            }
+        }).fail(function (e) {
+            console.log(e);
+            console.log("error");
+        });
+      }
     );
 </script>
