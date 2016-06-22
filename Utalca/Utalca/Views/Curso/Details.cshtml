@@ -125,22 +125,11 @@
     @Html.ActionLink("Volver a Cursos", "Index")
 </p>
 <script>
-    $(document).ready(function () {
-        var alumno = $('#idAlumno').val();
-        var asistencia = $('#idAsistencia_' + alumno).val();
-        $(':checkbox:checked').each(
-            function () {
-                console.log('idAsistencia_' + alumno);
-                console.log(asistencia);
-                $.ajax({
-                    method: "POST",
-                    url: "/api/CursoApi",
-                    dataType: "json",
-                    data: JSON.stringify([asistencia]),
-                    contentType: 'application/json; charset=utf-8',
-                    success: function (data) { }
-                });
-            }
-        );   
-    });
+    var alumno = $('#idAlumno').val();
+    var asistencia = $('#idAsistencia_' + alumno).val();
+    $("input[id^='idAsistencia_']").on("click", function ()
+        {
+ 
+        }
+    );
 </script>
