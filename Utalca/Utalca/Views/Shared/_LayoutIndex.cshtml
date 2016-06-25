@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - Control de Asistencia</title>
+        <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link rel="icon" type="image/ico" href="/Content/img/utalca.ico" />
+        <script src="~/Scripts/modernizr-2.6.2.js"></script>
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+    </head>
+</head>
+<body>
+    <header id="header">
+        <!-- //top-header -->
+        <!-- navbar -->
+        <div class="navbar navbar-v1 padd-tb-30 yamm stay-top nav" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+
+                    <a class="navbar-brand" href="/">
+                        <img src="/Content/img/logo.jpg" style="width: 100%; max-width: 300px; min-width: 200px" alt="logo" />
+                    </a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <div class="pull-right hidden-md hidden-sm hidden-xs" style="text-align:right; padding-bottom: 10px">
+                        <a href="http://www.utalca.cl" target="_blank">
+                            <img src="/Content/img/logoUtalcaNegro.png" style="height: 25px" alt="logo" />
+                        </a>
+                    </div>
+                    <br style="clear: both" />
+                </div><!--/.nav-collapse -->
+            </div><!-- ./container -->
+        </div>
+        <!-- //navbar -->
+    </header>
+    <!-- /header -->
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Control de Asistecncia</p>
+        </footer>
+    </div>
+    @Html.Partial("_Errores")
+
+    <script>
+        $(document).ready(function () {
+            if ($('#ErroresModal').length > 0)
+            {
+                $("#ErroresModal").modal('show')
+            }
+
+        });
+    </script>
+    <div class="footer-sub bg-light-blue padd-tb-10">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="copyright">
+                        <span style="text-transform: uppercase; font-size: 9pt">Facultad de Ingeniería de la Universidad de Talca - 2016 ©<br><a style="font-size: 9pt; color: #eeeeee !important" href="">+ acerca de este sitio web</a>.</span>
+                    </div>
+                </div>
+            </div><!-- ./row -->
+        </div><!-- ./container -->
+    </div>
+</body>
+</html>
+
+
+
