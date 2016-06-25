@@ -1,13 +1,27 @@
 ﻿@model List<Utalca.Models.Profesor>
 @{
-    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Académicos - Facultad Ingeniería";
 }
 
-<h2>Index</h2>
+<div class="jumbotron">
+    <h3>Académicos</h3>
+</div>
 
-<ul class="list-group">
+
+<div class="row">
     @foreach (var profesor in Model)
     {
-        <li class="list-group-item"><a href="@Url.Action("Detalles", "Profesor", new { id = profesor.ID })">@profesor.Nombre</a></li>
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img class="left" src="/Content/img/imgNoDisponible.png" alt="logo" style="height: 200px;">
+                <div class="caption">
+                    <h3>@profesor.Nombre</h3>
+                    <p>
+                        <a href="@Url.Action("Detalles", "Profesor", new { id = profesor.ID })" class="btn btn-primary" role="button">Perfil</a>
+                    </p>
+                </div>
+            </div>
+        </div>
     }
-</ul>
+</div>
