@@ -1,0 +1,34 @@
+﻿@model Utalca.ControlAsistencia.Clase
+
+@{
+    ViewBag.Title = "Clase";
+}
+
+<h2>@Html.DisplayFor(model => model.Titulo)</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            <p>Alumnos</p>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var participantes in Model.Presentes)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => participantes.Nombre)
+            </td>
+            <td>
+                <input hidden value="@participantes.ID" id="idParticipante">
+                <input hidden value="@Model.Fecha" id="idFecha">
+                <input id="idAsistencia" type="checkbox" > 
+            </td>
+        </tr>
+    }
+</table>
+<br />
+<button class="btn-success" id="buttonSubmit">Enviar Asistencia</button>
+
+
