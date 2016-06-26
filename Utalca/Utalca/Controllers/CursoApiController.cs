@@ -10,11 +10,10 @@ namespace Utalca.Controllers
     public class CursoApiController : ApiController
     {
         // GET api/<controller>
-        public IEnumerable<Utalca.ControlAsistencia.Curso> Get()
+        public bool Get(Utalca.Models.Asistencia value)
         {
             var servicio = new ControlAsistencia.ControlAsistenciaClient();
-            var cursos = servicio.Cursos();
-            return cursos;
+            return servicio.RegistrarAsistencia(value.IDParticipante, value.IDCurso, value.fechaClase);           
         }
 
         // GET api/<controller>/5
@@ -29,7 +28,7 @@ namespace Utalca.Controllers
         public void Post([FromBody]Utalca.Models.Asistencia value)
         {
             var servicio = new ControlAsistencia.ControlAsistenciaClient();
-            var resultado = servicio.RegistrarAsistencia(value.IDParticipante,value.IDCurso,value.fechaClase);
+            servicio.RegistrarAsistencia(value.IDParticipante,value.IDCurso,value.fechaClase);
         }
 
         // PUT api/<controller>/5

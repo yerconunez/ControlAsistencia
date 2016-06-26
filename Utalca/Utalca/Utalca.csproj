@@ -217,7 +217,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Views\Curso\Index.cshtml" />
-    <Content Include="Views\Curso\Details.cshtml" />
+    <Content Include="Views\Curso\Detalles.cshtml" />
     <Content Include="Views\Clase\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutIndex.cshtml" />
     <None Include="Web.Debug.config">
