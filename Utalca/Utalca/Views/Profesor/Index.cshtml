@@ -15,9 +15,9 @@
         {
             <div class="col-sm-6 col-md-4">
                 <div class="card">
-                    <img class="card-img-top" src="/Content/img/EO.jpg" alt="Académico" style="height: 200px;">
+                    <img class="card-img-top" src="/Content/img/@profesor.Foto" alt="Académico" style="height: 200px;">
                     <div class="card-block">
-                        <h4 class="card-title">@profesor.Nombre</h4>
+                        <h4 class="card-title">@profesor.Nombre @profesor.Apellido</h4>
                         <a href="@Url.Action("Detalles", "Profesor", new { id = profesor.ID })" class="btn btn-primary" role="button">Perfil</a>
                     </div>
                 </div>

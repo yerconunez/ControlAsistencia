@@ -18,8 +18,27 @@ namespace Utalca.Controllers
 
         public ActionResult Detalles(long id)
         {
-            var profesor = Servicio.DatosProfesor.Profesores().FirstOrDefault(m => m.ID == id);
-            if(profesor != null)
+            var servicio = new ControlAsistencia.ControlAsistenciaClient();
+            var profesores = Servicio.DatosProfesor.Profesores();
+            var profesor = profesores[0];
+            if (id%2==0)
+            {
+                profesor = profesores[0];
+            }
+            else if(id % 3 == 0)
+            {
+                profesor = profesores[1];
+            }
+            else if (id % 5 == 0)
+            {
+                profesor = profesores[2];
+            }
+            else
+            {
+                profesor = profesores[3];
+            }
+            profesor.Cursos = servicio.CursosPorProfesor(id);
+            if (profesor != null)
             {
                 return View("Detalles", profesor);
             }

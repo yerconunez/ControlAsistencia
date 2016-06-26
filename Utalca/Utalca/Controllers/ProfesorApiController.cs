@@ -12,12 +12,15 @@ namespace Utalca.Controllers
         // GET: api/ProfesorApi
         public IEnumerable<Models.Profesor> Get()
         {
-            return Servicio.DatosProfesor.Profesores();
+            
+           return Servicio.DatosProfesor.Profesores();
         }
 
         // GET: api/ProfesorApi/5
         public string Get(int id)
         {
+            var servicio = new ControlAsistencia.ControlAsistenciaClient();
+            var curso = servicio.CursosPorProfesor(id);
             return "value";
         }
 

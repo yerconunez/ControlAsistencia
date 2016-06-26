@@ -19,10 +19,11 @@ namespace Utalca.Models
         public string Apellido { get; set; }
         public string Biografia { get; set; }
         public string SitioWeb { get; set; }
-
+        public string Rol { get; set; }
+        public string Foto { get; set; }
         public DateTime FechaNacimiento { get; private set; }
-
-        public int Edad
+        public ControlAsistencia.Curso[] Cursos{ get; set; }
+    public int Edad
         {
             get
             {
