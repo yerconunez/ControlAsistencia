@@ -16,7 +16,7 @@ namespace Utalca.Controllers
             return View(cursos);
         }
 
-        public ActionResult Details(long id)
+        public ActionResult Detalles(long id)
         {
             var servicio = new ControlAsistencia.ControlAsistenciaClient();
             var curso = servicio.Curso(id);
