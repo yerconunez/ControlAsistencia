@@ -9,47 +9,14 @@
 <h2 id="nombre" hidden="true" >@Html.DisplayFor(model => model.Nombre)</h2>
 <div class="row">
     <div class="col-md-6">
-        <div class="panel panel-primary">
-            <div class="panel-body" style="overflow:auto; height:400px;">
-                @foreach (var clase in Model.Horario)
-                {
-                    <div class="panel-group">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" href="#collapse1_@clase.Fecha.ToString("yyyyMMddHHmm")">
-                                        @Html.DisplayFor(modelItem => clase.Titulo)
-                                    </a>
-                                    <a data-toggle="collapse" href="#collapse1_@clase.Fecha.ToString("yyyyMMddHHmm")" class="pull-right">
-                                        @Html.DisplayFor(modelItem => clase.Fecha)
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapse1_@clase.Fecha.ToString("yyyyMMddHHmm")" class="panel-collapse collapse">
-                                <ul class="list-group">
-                                    @foreach (var alumno in clase.Presentes)
-                                    {
-                                        <li class="list-group-item">
-                                            @Html.DisplayFor(modelItem => alumno.Nombre)
-                                            <input id="idAsistencia_@alumno.ID _@clase.Fecha.ToString("yyyyMMddHHmm")" type="checkbox" class="pull-right">
-                                        </li>
-                                    }
-                                </ul>
-                                <div class="panel-footer">
-                                    <ul class="list-inline">
-                                        <li class="pull-right">@Html.DisplayFor(modelItem => clase.Sala.Nombre)</li>
-                                        <li>@Html.DisplayFor(modelItem => clase.Tipo)</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                }
+        <div class="panel panel-default">
+            <div class="panel-body" style="height:456px;">
+
             </div>
         </div>
     </div>
     <div class="col-md-6">
-        <div class="panel panel-primary">
+        <div class="panel panel-default">
             <div class="panel-heading">
                 <h5>Registrar Asistencia</h5>
             </div>
@@ -87,6 +54,7 @@
                                                 @Html.DisplayFor(modelItem => alumno.Nombre)
                                                 <input id="idAsistencia_@alumno.ID _@clase.Fecha.ToString("yyyyMMddHHmm")" type="checkbox" class="pull-right" checked>
                                             </li>
+                                            estaPresente = false;
                                         }
                                         else
                                         {
@@ -94,10 +62,9 @@
                                                 @Html.DisplayFor(modelItem => alumno.Nombre)
                                                 <input id="idAsistencia_@alumno.ID _@clase.Fecha.ToString("yyyyMMddHHmm")" type="checkbox" class="pull-right" >
                                             </li>
-
+                                            estaPresente = false;
                                         }
                                     }
-                                    estaPresente = false;
                                 </ul>                                                                
                                 <div class="panel-footer">
                                     <ul class="list-inline">
