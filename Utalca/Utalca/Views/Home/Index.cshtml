@@ -1,5 +1,4 @@
-﻿@model Utalca.ControlAsistencia.Curso
-@{
+﻿@{
     Layout = "~/Views/Shared/_LayoutIndex.cshtml";
     ViewBag.Title = "Ingresar - Facultad de Ingeniería";
 }
@@ -28,7 +27,7 @@
                         </label>
                     </div>
                     <div class="padd-t-20">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">Ingresar</button>
+                        <a class="btn btn-primary btn-lg btn-block" type="button" href="@Url.Action("Index", "Curso")">Ingresar</a>
                     </div>
                 </form>
             </div>
