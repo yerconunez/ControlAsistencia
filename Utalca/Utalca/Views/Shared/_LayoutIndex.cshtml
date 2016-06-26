@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>@ViewBag.Title - Control de Asistencia</title>
+        <title>@ViewBag.Title </title>
         <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
         <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="~/Content/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -39,11 +39,15 @@
         <!-- //navbar -->
     </header>
     <!-- /header -->
+    
     <div class="container body-content">
         @RenderBody()
         <hr />
+    </div>
+    <div class="jumbotron">
         <footer>
             <p>&copy; @DateTime.Now.Year - Control de Asistecncia</p>
+            <p>Facultad de Ingeniería de la Universidad de Talca - 2016</p>
         </footer>
     </div>
     @Html.Partial("_Errores")
@@ -57,17 +61,7 @@
 
         });
     </script>
-    <div class="footer-sub bg-light-blue padd-tb-10">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="copyright">
-                        <span style="text-transform: uppercase; font-size: 9pt">Facultad de Ingeniería de la Universidad de Talca - 2016 ©<br><a style="font-size: 9pt; color: #eeeeee !important" href="">+ acerca de este sitio web</a>.</span>
-                    </div>
-                </div>
-            </div><!-- ./row -->
-        </div><!-- ./container -->
-    </div>
+    
 </body>
 </html>
 

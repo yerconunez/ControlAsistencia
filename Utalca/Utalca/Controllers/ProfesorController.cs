@@ -19,16 +19,13 @@ namespace Utalca.Controllers
         public ActionResult Detalles(long id)
         {
             var profesor = Servicio.DatosProfesor.Profesores().FirstOrDefault(m => m.ID == id);
-            if(profesor != null)
+            if (profesor != null)
             {
-                if(profesor.ID % 2 == 0)
-                    return View("DetallesPicante", profesor);
-                else
-                    return View("DetallesPulento", profesor);
+                return View("Detalles", profesor);
             }
             else
             {
-                return RedirectToAction("Index", "Home");
+                return View("ProfesorNoEncontrado", "Profesor");
             }
         }
 
@@ -41,7 +38,7 @@ namespace Utalca.Controllers
         public ActionResult Crear(Models.Profesor p)
         {
             var profesores = Servicio.DatosProfesor.Profesores();
-            if(profesores.Any(m => m.Nombre == p.Nombre))
+            if (profesores.Any(m => m.Nombre == p.Nombre))
             {
                 Utils.MensajesUI.SetError("Ya existe un usuario con ese nombre");
                 return RedirectToAction("Index", "Home");
@@ -51,7 +48,7 @@ namespace Utalca.Controllers
                 Servicio.DatosProfesor.Profesores().Add(p);
                 return RedirectToAction("Index", "Profesor");
             }
-            
+
         }
     }
 }

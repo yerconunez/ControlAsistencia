@@ -5,11 +5,7 @@
     ViewBag.Title = "Cursos - Facultad Ingeniería";
 }
 
-<div class="row">
-    <div class="well">
-        <h2>Cursos</h2>
-    </div>
-</div>
+
 
 <div class="row">
     <div class="col-md-9">
@@ -32,7 +28,7 @@
                             <li>
                                 <i class="fa fa-group" style="color: gray;"></i>
                                 <a href="#" style="color: gray;">@item.Alumnos.Length</a>
-                            </li>  
+                            </li>
                             <li>
                                 <i class="fa fa-sitemap" style="color: gray;"></i>
                                 <a href="#" style="color: gray;">@Html.DisplayFor(modelItem => item.Seccion)</a>
@@ -44,7 +40,7 @@
                             <li>
                                 <i class="fa fa-graduation-cap" style="color: gray;"></i>
                                 <a href="#" style="color: gray;">@Html.DisplayFor(modelItem => item.Plan.Nombre)</a>
-                            </li>                      
+                            </li>
                         </ul>
                         <a href="@Url.Action("Detalles", "Curso", new { id = item.ID })" class="btn btn-primary" role="button">Detalles</a>
                     </div>
@@ -67,3 +63,9 @@
         }
     </div>
 </div>
+<script>
+        $(document).ready(function () {
+            var titulo = $('#titulo').text("Cursos");
+            console.log(titulo);
+        });
+</script>
