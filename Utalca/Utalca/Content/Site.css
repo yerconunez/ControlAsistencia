@@ -1,0 +1,76 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.page-title {
+    position: relative;
+    border-top: none;
+}
+
+    .page-title h1, .page-title h2, .page-title h3, .page-title h4, .page-title h5 {
+        color: #fff;
+        margin: 10px 0;
+        font-size: 22px;
+        text-transform: capitalize;
+        font-weight: 400;
+    }
+
+    .page-title p {
+        font-size: 15px;
+        color: #fff;
+    }
+
+    .page-title .breadcrumb {
+        margin: 12px 0 0;
+        background: 0 0;
+    }
+
+        .page-title .breadcrumb > .active {
+            color: #2e8def !important;
+        }
+
+        .page-title .breadcrumb > li a {
+            color: #fff;
+        }
+
+            .page-title .breadcrumb > li a:hover {
+                color: #888;
+            }
+
+        .page-title .breadcrumb > li + li:before {
+            color: #fff;
+        }
+
+    .page-title.bg-dark h1, .page-title.bg-dark h2, .page-title.bg-dark h3, .page-title.bg-dark p {
+        color: #fff !important;
+        margin: 20px 0;
+    }
+
+    .page-title.bg-dark .breadcrumb > li a, .page-title.bg-dark .breadcrumb > li a:hover, .page-title.bg-dark .breadcrumb > li + li:before {
+        color: #888;
+    }
+
+    .page-title.bg-gray h1, .page-title.bg-gray h2, .page-title.bg-gray h3, .page-title.bg-gray p, .page-title.bg-white h1, .page-title.bg-white h2, .page-title.bg-white h3, .page-title.bg-white p {
+        color: #888;
+        margin: 20px 0;
+        text-transform: capitalize;
+    }
+
+    .page-title.bg-gray .breadcrumb > li a, .page-title.bg-gray .breadcrumb > li a:hover, .page-title.bg-gray .breadcrumb > li + li:before, .page-title.bg-white .breadcrumb > li a, .page-title.bg-white .breadcrumb > li a:hover, .page-title.bg-white .breadcrumb > li + li:before {
+        color: #888;
+    }
+

@@ -1,0 +1,101 @@
+﻿@model Utalca.ControlAsistencia.Curso
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Detalles Curso";
+}
+<h2 id="nombre" hidden="true">@Html.DisplayFor(model => model.Nombre)</h2>
+<div class="row">
+    <div class="col-md-3">
+        <p><strong>Profesores</strong></p>
+        @foreach (var participante in Model.Profesores)
+        {
+            <p><a  href="@Url.Action("Detalles", "Profesor", new { id =participante.ID })" >@participante.Nombre</a></p>
+        }
+        <p><strong>Carrera</strong> </p>
+        <p>@Model.Carrera.Nombre</p>
+        <p><strong>Creditos</strong> </p>
+        <p>@Model.Creditos</p>
+        <p><strong>Plan</strong> </p>
+        <p>@Model.Plan.Nombre</p>
+        <p><strong>Sección</strong> </p>
+        <p>@Model.Seccion</p>
+        <p><strong>Alumnos</strong> </p>
+        @foreach (var participante in Model.Alumnos)
+        {
+            <p><a href="@Url.Action("Detalles", "Alumno", new { nombre = participante.Nombre })">@participante.Nombre</a></p>
+        }
+        <p><strong>Ayudantes</strong> </p>
+        @foreach (var participante in Model.Ayudantes)
+        {
+            <p><a href="@Url.Action("Detalles", "Alumno", new { nombre = participante.Nombre })">@participante.Nombre</a></p>
+        }
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h5>Registrar Asistencia</h5>
+            </div>
+            <div class="panel-body" style="overflow:auto; height:400px;">
+                @foreach (var clase in Model.Horario)
+                {
+                    <div class="panel-group">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#collapse1_@clase.Fecha.ToString("yyyyMMddHHmm")">
+                                        @Html.DisplayFor(modelItem => clase.Titulo)
+                                    </a>
+                                    <a data-toggle="collapse" id="clase @clase.Fecha" href="#collapse1_@clase.Fecha.ToString("yyyyMMddHHmm")" class="pull-right">
+                                        @Html.DisplayFor(modelItem => clase.Fecha)
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse1_@clase.Fecha.ToString("yyyyMMddHHmm")" class="panel-collapse collapse">
+                                <ul class="list-group">
+                                    @foreach (var participantes in clase.Presentes)
+                                    {
+                                        <li class="list-group-item">
+                                            @Html.DisplayFor(modelItem => participantes.Nombre)
+                                            <input id="idAsistencia @participantes.ID @clase.Fecha" type="checkbox" class="pull-right">
+                                        </li>
+                                    }
+                                </ul>
+                                <div class="panel-footer">@Html.DisplayFor(modelItem => clase.Sala.Nombre)</div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+<p>
+    @Html.ActionLink("Volver a Cursos", "Index")
+</p>
+<script>
+    var nombre = $('#nombre').text();
+    $('#titulo').text(nombre);
+    $("input[id^='idAsistencia']").on("click", function () {
+        var idParticipante = $(this).attr("id").split(" ")[1];
+        var fecha = $(this).attr("id").split(" ")[2];
+        idParticipante = parseInt(idParticipante);
+
+        console.log(idParticipante);
+        console.log(fecha);
+        $.ajax({
+            url: "/api/CursoApi",
+            data: { IDParticipante: idParticipante, IDCurso: @Model.ID, FechaClase: fecha},
+            accepts: "application/json",
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            method: "POST",
+            success: function (result) {
+                
+            }
+        }).fail(function (e) {
+            
+        });
+      }
+    );
+</script>

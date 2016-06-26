@@ -1,0 +1,44 @@
+﻿@model Utalca.Models.Profesor
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Académico - Facultad Ingeniería";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="gallery-box">
+            <img style="width: 200px;" src="/Content/img/@Model.Foto" />
+        </div>
+        <h4 id="nombre" hidden="true" class="card-title">@Model.Nombre    @Model.Apellido</h4>
+        <hr style="clear:both" />
+        <h4 class="card-title">Sitio Web</h4>
+        <p style="font-size: 16px;">
+            @Model.SitioWeb
+        </p><br /> 
+       
+    </div>
+    <div class="col-md-9 " >
+        <div class="panel panel-default" style="background-color:#f9f9f9">
+            <div class="panel-body">
+                <h3>Biografía</h3>
+                <hr style="clear:both" />
+                <p>@Model.Biografia</p>
+                <h3>Mis Cursos</h3>
+                <hr style="clear:both" />
+                @foreach (var curso in @Model.Cursos)
+                {
+                    <p><a  href="@Url.Action("Detalles", "Curso", new { id = curso.ID })" >@curso.Nombre</a></p>
+                }
+                
+            </div>
+        </div> 
+    </div>
+</div>
+   
+
+<script>
+    $(document).ready(function () {
+        var nombre = $('#nombre').text();
+        $('#titulo').text(nombre);
+     });
+</script>
