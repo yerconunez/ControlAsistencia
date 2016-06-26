@@ -1,0 +1,40 @@
+﻿@model Utalca.ControlAsistencia.Curso
+@{
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+    ViewBag.Title = "Ingresar - Facultad de Ingeniería";
+}
+
+
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Ingresar</h3>
+            </div>
+            <div class="panel-body">
+                <form action="/Profesor" class="form-signin" data-abide="true" method="post">
+                    <div class="form-group">
+                        <label for="Email">Correo Electrónico</label>
+                        <input id="Email" name="Email" class="form-control" placeholder="Su correo electrónico" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Password">Contraseña</label>
+                        <input id="Password" name="Password" class="form-control" placeholder="Su contraseña" type="password" />
+                        <a class="pull-right small">Olvid&#243; su contrase&#241;a?</a>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Recuérdame
+                        </label>
+                    </div>
+                    <div class="padd-t-20">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Ingresar</button>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-footer">Aún no tienes cuenta?  <a href="#" data-toggle="modal" data-target="#RegistroModal"> Regístrate</a> aquí!</div>
+        </div>
+    </div>
+</div>
+
+

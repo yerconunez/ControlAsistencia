@@ -21,14 +21,11 @@ namespace Utalca.Controllers
             var profesor = Servicio.DatosProfesor.Profesores().FirstOrDefault(m => m.ID == id);
             if(profesor != null)
             {
-                if(profesor.ID % 2 == 0)
-                    return View("DetallesPicante", profesor);
-                else
-                    return View("DetallesPulento", profesor);
+                return View("Detalles", profesor);
             }
             else
             {
-                return RedirectToAction("Index", "Home");
+                return View("ProfesorNoEncontrado", "Profesor");
             }
         }
 

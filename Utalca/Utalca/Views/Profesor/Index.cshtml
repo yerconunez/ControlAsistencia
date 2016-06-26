@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Utalca.Models.Profesor>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Académicos - Facultad Ingeniería";
+}
+
+
+
+
+
+
+<div class="row">
+    <div class="card-deck-wrapper">
+        @foreach (var profesor in Model)
+        {
+            <div class="col-sm-6 col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="/Content/img/EO.jpg" alt="Académico" style="height: 200px;">
+                    <div class="card-block">
+                        <h4 class="card-title">@profesor.Nombre</h4>
+                        <a href="@Url.Action("Detalles", "Profesor", new { id = profesor.ID })" class="btn btn-primary" role="button">Perfil</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<script>
+        $(document).ready(function () {
+            var titulo = $('#titulo').text("Académicos");
+            console.log(titulo);
+        });
+</script>

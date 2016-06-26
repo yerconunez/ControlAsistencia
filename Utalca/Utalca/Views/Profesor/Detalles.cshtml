@@ -1,0 +1,43 @@
+﻿@model Utalca.Models.Profesor
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Académico - Facultad Ingeniería";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="gallery-box">
+            <img style="width: 200px;" src="/Content/img/EO.jpg" />
+        </div>
+        <h4 id="nombre" hidden="true" class="card-title">@Model.Nombre    @Model.Apellido</h4>
+        <hr style="clear:both" />
+        <h4 class="card-title">Nacimniento</h4>
+        <p style="font-size: 16px;">
+            @Model.FechaNacimiento.ToString("dd-MM-yyyy")
+        </p><br /> 
+        <p style="font-size: 16px;">
+            @Model.SitioWeb
+        </p><br /> 
+        <p style="font-size: 16px;">
+            @Model.Biografia
+        </p><br /> 
+        <a class="btn btn-lg btn-primary" href="@Url.Action("Index", "Profesor")">Volver</a><br />
+        <a href="@Url.Action("Index", "Curso")" class="btn btn-primary" role="button">Mis Cursos</a>
+    </div>
+    <div class="col-md-9 " >
+        <div class="panel panel-default" style="background-color:#f9f9f9">
+            <div class="panel-body">
+                <h3>Biografía</h3>
+                <hr style="clear:both" />
+            </div>
+        </div> 
+    </div>
+</div>
+   
+
+<script>
+    $(document).ready(function () {
+        var nombre = $('#nombre').text();
+        $('#titulo').text(nombre);
+     });
+</script>
